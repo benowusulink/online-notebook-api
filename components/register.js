@@ -6,7 +6,7 @@ const RegisterHandler = (req, res, db) => {
   /* conditional check to see if the name,
 	email or hash from the request is invalid */
   if (!name || !email || !hash) {
-    return res.json("please register details");
+    return res.json("error");
   }
 
   /* starting a knex transaction which allows 
@@ -43,7 +43,7 @@ const RegisterHandler = (req, res, db) => {
     /* catching any errors that may occur during the 
 	knex transaction */
     .catch((err) => {
-      res.json("error registering");
+      res.json("error");
     });
 };
 
