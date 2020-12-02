@@ -57,5 +57,5 @@ app.post("/new-note", (req, res) => {
 
 /* starting express server */
 app.listen(process.env.PORT, () => {
-  console.log("api is running smooth on port 3003");
+  console.log(`api is running smooth on ${process.env.PORT}`);
 });
