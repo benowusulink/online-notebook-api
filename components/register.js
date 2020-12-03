@@ -43,7 +43,7 @@ const RegisterHandler = (req, res, db) => {
     /* catching any errors that may occur during the 
 	knex transaction */
     .catch((err) => {
-      res.json("error");
+      res.json("errorrrrrr");
     });
 };
 
