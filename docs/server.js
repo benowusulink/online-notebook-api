@@ -6,10 +6,10 @@ const bcrypt = require("bcryptjs");
 const cors = require("cors");
 
 /* Imported components for express routing */
-const Signin = require("./components/signin.js");
-const Register = require("./components/register.js");
-const ntn = require("./components/note-container.js");
-const newNote = require("./components/new-note.js");
+const Signin = require("../components/signin.js");
+const Register = require("../components/register.js");
+const ntn = require("../components/note-container.js");
+const newNote = require("../components/new-note.js");
 
 /* using and caching express */
 const app = express();
@@ -35,7 +35,7 @@ const db = knex({
 
 /* server handling from client to database*/
 app.get("/", (req, res) => {
-  return res.json("server working");
+  return res.json("This is a server for the online-notebook client, if you see this message the server is up and running without error");
 });
 
 /* Sign in route */
