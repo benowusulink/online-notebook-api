@@ -17,17 +17,22 @@ const app = express();
 /* middleware */
 app.use(cors(), bodyParser.json());
 
+/* dotenv import for environmental variables */
+require('dotenv').config();
+
 /* connecting to the postgres server 
 through database */
 const db = knex({
   client: "pg",
   connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl : {
-         rejectUnaunthorized: false
-             }
-                        }
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+  },
 });
+
 
 /* server handling from client to database*/
 app.get("/", (req, res) => {
