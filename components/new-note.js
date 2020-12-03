@@ -14,7 +14,6 @@ const NewNote = (req, res, db) => {
     })
 
     .then((data) => {
-
       return db("notes")
         .where({
           id: id,
@@ -23,13 +22,15 @@ const NewNote = (req, res, db) => {
     })
 
     .then((data) => {
-     
       if (data) {
         return res.json({
           status: "success",
           info: data,
         });
       }
+    })
+    .catch((err) => {
+      res.json("error adding note");
     });
 };
 

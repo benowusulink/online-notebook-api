@@ -15,6 +15,9 @@ const NoteContainer = (req, res, db) => {
         status: "success",
         info: data,
       });
+    })
+    .catch((err) => {
+      res.json("error getting notes");
     });
 };
 

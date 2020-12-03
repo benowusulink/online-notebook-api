@@ -25,7 +25,6 @@ const RegisterHandler = (req, res, db) => {
       /* inserting name and user into user table
 	 (postgresql will auto increment id)*/
       .then((user) => {
-       
         return trx("users").returning("*").insert({
           name: name,
           email: user[0],
@@ -34,7 +33,6 @@ const RegisterHandler = (req, res, db) => {
       /* sending to the client a success message and the
 	id and name of the user */
       .then((data) => {
-    
         return res.json({ status: "success", info: data[0] });
       })
       .then(trx.commit)
