@@ -24,7 +24,15 @@ const RegisterHandler = (req, res, db) => {
       .returning("email")
       /* inserting name and user into user table
 	 (postgresql will auto increment id)*/
-      .then((user) => {
+
+         .then((data) => {
+    
+        return res.json({ status: "success", info: data[0] });
+      })
+      .then(trx.commit)
+      .catch(trx.rollback);
+  })
+      /*.then((user) => {
        
         return trx("users").returning("*").insert({
           name: name,
@@ -33,13 +41,13 @@ const RegisterHandler = (req, res, db) => {
       })
       /* sending to the client a success message and the
 	id and name of the user */
-      .then((data) => {
+   /*   .then((data) => {
     
         return res.json({ status: "success", info: data[0] });
       })
       .then(trx.commit)
       .catch(trx.rollback);
-  })
+  })*/
     /* catching any errors that may occur during the 
 	knex transaction */
     .catch((err) => {
