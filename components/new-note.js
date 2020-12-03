@@ -14,7 +14,7 @@ const NewNote = (req, res, db) => {
     })
 
     .then((data) => {
-      console.log(data);
+
       return db("notes")
         .where({
           id: id,
@@ -23,7 +23,7 @@ const NewNote = (req, res, db) => {
     })
 
     .then((data) => {
-      console.log(data);
+     
       if (data) {
         return res.json({
           status: "success",
@@ -32,29 +32,6 @@ const NewNote = (req, res, db) => {
       }
     });
 };
-
-/* return db('notes')
-    .returning('*')
-    .insert({note: note,
-             notetitle: noteTitle,
-             id: id
-    })
-
-    db('notes')
-    .where({
-    id: id
-      })
-    .select('*')
-
-    .then((data)=>{
-      console.log(data[0]);
-      if(data[0].id){
-        return(
-        res.json({
-          status:"success",
-          info: data[0]
-      })
-    )}}) */
 
 module.exports = {
   NewNote,
