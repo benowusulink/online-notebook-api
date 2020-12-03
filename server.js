@@ -19,15 +19,14 @@ app.use(cors(), bodyParser.json());
 
 /* connecting to the postgres server 
 through database */
-const db = knex({
+const psql = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    port: "5432",
-    user: "ben",
-    password: "",
-    database: "online-notebook",
-  },
+    connectionString: process.env.DATABASE_URL,
+    ssl : {
+         rejectUnaunthorized: false
+             }
+                        }
 });
 
 /* server handling from client to database*/
