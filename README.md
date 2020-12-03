@@ -36,3 +36,10 @@ the app.
 
 2. A query builder called knex is used to make queries to the
    database, this is to prevent client side SQL injections.
+
+## Future improvements (Agile Future Sprints)
+
+1. Redis databse can be added instead on postgresql to improve speed 
+and the Session management.
+
+
