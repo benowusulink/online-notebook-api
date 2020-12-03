@@ -35,7 +35,9 @@ const db = knex({
 
 /* server handling from client to database*/
 app.get("/", (req, res) => {
-  return res.json("This is a server for the online-notebook client, if you see this message the server is up and running without error");
+  return res.json(
+    "This is a server for the online-notebook client, if you see this message the server is up and running without error"
+  );
 });
 
 /* Sign in route */
